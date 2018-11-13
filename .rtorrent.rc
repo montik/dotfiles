@@ -1,0 +1,6 @@
+#directory = "/var/run/media/edo/film/down"
+directory = "~/dow"
+session = "~/.rtorrent.session"
+schedule = 1,0,60,"load_start = tor/*.torrent"
+upload_rate = 15 
+download_rate = 90

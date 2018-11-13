@@ -1,13 +1,17 @@
-export PS1='\w \$ '
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
 shopt -s histverify
 
-alias ls="gls -F --group-directories-first"
+if [[ "$(hostname)" == munich ]]; then
+	alias ls="ls -F --group-directories-first"
+	alias ,tcp="lsof -i TCP -s TCP:LISTEN -n -P"
+else 
+	alias ls="gls -F --group-directories-first"
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+	PATH+=':/Users/monticellie/.gem/ruby/2.0.0/bin:'	
+fi
+
 alias s="ls"
 alias t="tmux new bash"
 
-alias ,tcp="lsof -i TCP -s TCP:LISTEN -n -P"
 
 #search history with key up 
 # ~/.bashrc
@@ -21,4 +25,8 @@ fi
 if [[ -f /usr/local/etc/bash_completion ]]; then
 	.  /usr/local/etc/bash_completion
 fi
-PATH+=':/Users/monticellie/.gem/ruby/2.0.0/bin:'
+
+# functions
+mountf() {
+	mount $@ | grep -E '^/'	
+}
