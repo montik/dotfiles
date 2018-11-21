@@ -2,7 +2,7 @@ shopt -s histverify
 
 if [[ "$(hostname)" == munich ]]; then
 	alias ls="ls -F --group-directories-first"
-else if [[ "$(hostname)" == M10812.serviceplan.de ]]; then 
+elif [[ "$(hostname)" == M10812.serviceplan.de ]]; then 
 	PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 	PATH+=':/Users/monticellie/.gem/ruby/2.0.0/bin:'	
 
